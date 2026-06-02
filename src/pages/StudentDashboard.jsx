@@ -11,6 +11,9 @@ function StudentDashboard({ username }) {
       .catch((err) => console.log(err));
   }, []);
 
+
+
+
   const registerEvent = async (eventName) => {
     try {
       const response = await fetch(
@@ -51,11 +54,22 @@ function StudentDashboard({ username }) {
     (a, b) => new Date(a.date) - new Date(b.date)
   );
 
+const logout = () => {
+  localStorage.removeItem("token");
+  window.location.reload();
+};
+
+
   return (
     <div>
       <h1>Student Dashboard</h1>
 
-      <p>Logged in as: {username}</p>
+      <button onClick={logout}>
+        Logout
+      </button>
+
+<p>Logged in as: {username}</p>
+
 
       <h2>Upcoming Events</h2>
 

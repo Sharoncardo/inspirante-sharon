@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const eventRoutes = require("./routes/eventRoutes");
+const authRoutes = require("./routes/authRoutes");
 const registrationRoutes = require("./routes/registrationRoutes");
 const app = express();
 
@@ -9,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/register", registrationRoutes);
 app.use("/api/events",eventRoutes);
+app.use("/api/auth",authRoutes);
 
 mongoose.connect("mongodb://127.0.0.1:27017/inspirante")
 .then(() => {

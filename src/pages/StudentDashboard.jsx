@@ -27,8 +27,19 @@ function StudentDashboard({ username }) {
         }
       );
 
-      const data = await response.json();
-      alert("Event created successfully");
+          const data = await response.json();
+
+      if (response.ok) {
+        alert("Registered successfully");
+      } else {
+        alert(data.message);
+      }
+
+
+
+
+
+
 
     } catch (error) {
       console.log(error);

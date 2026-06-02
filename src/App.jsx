@@ -8,32 +8,45 @@ function App() {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
 
- const handleLogin = () => {
-  const students = [
-    "asha.rao",
-    "ravi.shetty",
-    "meera.nair",
-    "kiran.bhat",
-    "divya.kamath",
-    "suresh.pai",
-    "ananya.hegde",
-    "rohan.shenoy",
-    "nisha.prabhu",
-    "tejas.mallya",
-    "priya.bangera",
-  ];
+     const handleLogin = async () => {
+  try {
+    const response = await fetch(
+      "http://localhost:3000/api/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      }
+    );
 
-  if (username === "admin" && password === "inspirante2026") {
-    setRole("admin");
-  } else if (
-    students.includes(username) &&
-    password === "student123"
-  ) {
-    setRole("student");
-  } else {
-    alert("Invalid Credentials");
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.message);
+      return;
+    }
+
+    localStorage.setItem("token", data.token);
+
+    setRole(data.role);
+
+  } catch (error) {
+    console.log(error);
+    alert("Login failed");
   }
 };
+
+
+
+
+
+
+
 
   if (role === "admin") {
     return <AdminDashboard />;

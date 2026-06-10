@@ -153,3 +153,35 @@ Events
 Author
 
 Sharon Cardoza
+
+# Future Roadmap
+
+# AI-Powered Event Assistant
+- Multilingual event registration and support.
+- Voice-based event discovery and booking.
+- Personalized event recommendations.
+
+# Autonomous Event Management
+- Automated ticket cancellation and refund workflows.
+- AI-assisted attendee support.
+- Smart conflict detection and scheduling.
+
+# Organizer Productivity Tools
+- Create events from natural language prompts.
+- Generate event descriptions automatically.
+- AI-powered analytics and insights.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
